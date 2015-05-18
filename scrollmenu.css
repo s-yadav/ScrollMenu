@@ -1,0 +1,139 @@
+/*
+    ScrollMenu v 1.0.0
+    Author: Sudhanshu Yadav
+    Copyright (c) to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
+    Demo on: http://ignitersworld.com/lab/scrollmenu/
+*/
+/** scroller menu css **/
+.scroller-container {
+  overflow: hidden;
+  position: relative;
+}
+.content-wrapper {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  left: 0;
+  top: 0;
+  overflow: auto;
+}
+.content-inner-wrapper {
+  width: 100%;
+  position: relative;
+}
+.scroll-menu-wrapper {
+  position: absolute;
+}
+.scroll-anchor {
+  cursor: pointer;
+  position: relative;
+}
+.scroll-handle-wrap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  background: #ccc;
+}
+.scroll-menu-dragging * {
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: grabbing !important;
+}
+.scroll-handle {
+  background: #333;
+  position: absolute;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  opacity: .7;
+}
+/*** scroll menu content ***/
+.scroll-menu-content {
+  position: absolute;
+  -webkit-transition: all ease 300ms;
+  -moz-transition: all ease 300ms;
+  -o-transition: all ease 300ms;
+  transition: all ease 300ms;
+  overflow: hidden;
+}
+/*** for vertical scroll menu ***/
+.scroll-menu-wrapper.vertical {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 100%;
+  right: 10px;
+  padding: 20px 0px;
+}
+.scroll-menu-wrapper.vertical .scroll-anchor {
+  width: 10px;
+}
+.scroll-menu-wrapper.vertical .scroll-handle {
+  width: 100%;
+}
+.scroll-menu-wrapper.vertical .scroll-menu-content {
+  right: 10px;
+  height: 100%;
+  width: 0;
+}
+.scroll-menu-wrapper.vertical .scroll-menu-content.hovered {
+  width: 200px;
+}
+/*** for horizontal scrollmenu ***/
+.scroll-menu-wrapper.horizontal {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  top: 10px;
+  white-space: nowrap;
+  padding: 0 30px;
+}
+.scroll-menu-wrapper.horizontal .scroll-anchor {
+  height: 10px;
+  float: left;
+}
+.scroll-menu-wrapper.horizontal .scroll-handle {
+  height: 100%;
+}
+.scroll-menu-wrapper.horizontal .scroll-menu-content {
+  top: 10px;
+  width: 100%;
+  height: 0;
+}
+.scroll-menu-wrapper.horizontal .scroll-menu-content.hovered {
+  height: 60px;
+}
+/*** for horizontal menu ***/
+.scroll-menu-wrapper.horizontal-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  white-space: nowrap;
+}
+.scroll-menu-wrapper.horizontal-menu .scroll-anchor {
+  float: left;
+}
+.scroll-menu-wrapper.horizontal-menu .scroll-handle-wrap {
+  position: relative;
+  height: 5px;
+}
+.scroll-menu-wrapper.horizontal-menu .scroll-handle {
+  height: 100%;
+}
+.scroll-menu-wrapper.horizontal-menu .scroll-menu-content {
+  position: relative;
+  height: 40px;
+  top: 0;
+  background: none !important;
+}
+/** scroller menu css end **/

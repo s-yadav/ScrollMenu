@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ScrollMenu.js | Vertical Scrollbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../scrollmenu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/demo.css">
+</head>
+
+<body class="">
+
+    <section class="section" id="section1">
+        <div class="content">
+            Section 1
+        </div>
+    </section>
+    <section class="section" id="section2">
+        <div class="content">Section 2</div>
+    </section>
+    <section class="section" id="section3">
+        <div class="content">Section 3</div>
+    </section>
+    <section class="section" id="section4">
+        <div class="content">Section 4</div>
+    </section>
+    <section class="section" id="section5">
+        <div class="content">Section 5</div>
+    </section>
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../../scrollmenu.js"></script>
+    <script>
+            //base setup
+        var setupOption = {
+            template: '<div class="menu-wrap"><div class="menu"><%= label %></div></div>',
+            anchorSetup: [
+                {
+                    backgroundColor: "#dc767d",
+                    label: "Section 1"
+                    },
+                {
+                    backgroundColor: "#36d278",
+                    label: "Section 2"
+                    },
+                {
+                    backgroundColor: "#22cfc6",
+                    label: "Section 3"
+                    },
+                {
+                    backgroundColor: "#8794a1",
+                    label: "Section 4"
+                    },
+                {
+                    backgroundColor: "#1ccdaa",
+                    label: "Section 5"
+                }]
+        };
+
+        var scrollMenu = ScrollMenu(setupOption);
+    </script>
+
+</body>
+
+</html>

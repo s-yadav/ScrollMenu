@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ScrollMenu.js | Creative Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../scrollmenu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/demo.css">
+</head>
+
+<body class="">
+
+    <section class="section" id="section1">
+        <div class="content">
+            Section 1
+        </div>
+    </section>
+    <section class="section" id="section2">
+        <div class="content">Section 2</div>
+    </section>
+    <section class="section" id="section3">
+        <div class="content">Section 3</div>
+    </section>
+    <section class="section" id="section4">
+        <div class="content">Section 4</div>
+    </section>
+    <section class="section" id="section5">
+        <div class="content">Section 5</div>
+    </section>
+
+
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../../scrollmenu.js"></script>
+    <script>
+                   //base setup
+        var setupOption = {
+            className : 'creative-menu',
+            anchorSetup: [
+                {
+                    backgroundColor: "#dc767d",
+                    label: "Section 1",
+                    className : 'animate-text',
+                    template: '<div class="menu-wrap"><div class="menu"><div class="text-wrap"><%= label %></div></div></div>'
+                },
+                {
+                    backgroundColor: "#36d278",
+                    label: "Section 2",
+                    className : "cube",
+                    template : '<div class="menu-wrap"><img src="../assets/images/4dcube.gif" class="cube-img" /> <%= label %></div>' 
+                },
+                {
+                    backgroundColor: "#22cfc6",
+                    label: "Section 3",
+                    backgroundImg : "../assets/images/menu_bg.jpg",
+                    className : "bg-img"  ,
+                    template: '<div class="menu-wrap" style="background-image : url(<%= backgroundImg %>)"><div class="menu"><%= label %></div></div>',
+                    },
+                {
+                    backgroundColor: "#8794a1",
+                    label: "Section 4",
+                    className : 'bunny-bg',
+                    backgroundImg : "../assets/images/bunny.gif",
+                    template: '<div class="menu-wrap"><img class="bg-img" src="<%= backgroundImg %>" /><div class="menu"><%= label %></div></div>',
+                    onhover : function(){
+                        var img = $(this).find('.bg-img')[0],
+                            imgSrc = img.src;
+                        
+                        img.src = "";
+                        img.src = imgSrc;   
+                    }
+                },
+                {
+                    backgroundColor: "#1ccdaa",
+                    label: "Section 5",
+                    className : 'rolling-text',
+                    template: '<div class="menu-wrap"><div class="text-wrap menu" data-label="<%= label %>"></div></div>',
+                    menuMod : function(){
+                        var  textWrap = $(this).find('.text-wrap'),
+                            label = textWrap.attr('data-label'),
+                            textHtml = [];
+                            
+                        for(var i =0,ln=label.length; i<ln; i++){
+                            textHtml.push('<div class="rolling-char">'+(label[i]== " "?"&nbsp;":label[i] )+'</div>');
+                        }
+                        
+                        textWrap.append(textHtml.join(''));
+                            
+                    }
+                },
+            
+            ]
+        };
+
+        var scrollMenu = ScrollMenu(setupOption);
+    </script>
+
+</body>
+
+</html>
