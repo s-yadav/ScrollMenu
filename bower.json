@@ -1,6 +1,6 @@
 {
     "name": "ScrollMenu",
-    "description": "ScrollMenu.js transforms your scroll bar to awesome scroll menu. It gives a user sense of where they are in a page and how long is that section. With a high customizibility of plugin you can have a unique user experience.",
+    "description": "ScrollMenu.js transforms your scroll bar to awesome scroll menu. It gives a user sense of where they are in a page and how long is that section. With a high customizability of plugin you can have a unique user experience.",
     "main": "scrollmenu.js",
     "author": {
         "name": "Sudhanshu Yadav",
