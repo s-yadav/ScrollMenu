@@ -1,7 +1,7 @@
 /*
     ScrollMenu v 1.0.0
     Author: Sudhanshu Yadav
-    Copyright (c) to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
+    Copyright (c) 2015 to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
     Demo on: http://ignitersworld.com/lab/scrollmenu/
 */
 
