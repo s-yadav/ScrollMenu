@@ -28,7 +28,7 @@ function niceScrollMenu(container, scrollMenuOptions, niceScrollOptions){
 
     //hook scrollTop method
     scrollMenuInst.scrollTop = function () {
-        return container.scrollTop();
+        return niceScrollInst.getScrollTop();
     }
 
     //hook _scrollHeight method
