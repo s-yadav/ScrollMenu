@@ -1,11 +1,13 @@
 /*
-    ScrollMenu v 1.0.0
+    ScrollMenu v 1.0.1
     Author: Sudhanshu Yadav
     Copyright (c) 2015 to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
     Demo on: http://ignitersworld.com/lab/scrollmenu/
 */
 
 ;(function ($, window, document, undefined) {
+    "use strict";
+
     //a singular method for hquery
     $.single = (function () {
         var single = $({});
@@ -19,6 +21,11 @@
     var $document = $(document),
         $window = $(window),
         $body = $('body');
+
+    //access global object
+    var global = (function () {
+        return this || (1, eval)('this');
+    }());
 
     //void function
     var voidFun = function () {};
@@ -54,7 +61,7 @@
     (function () {
         var cache = {};
 
-        this.tmpl = function tmpl(str, data) {
+        global.tmpl = function tmpl(str, data) {
             // Figure out if we're getting a template, or if we need to
             // load the template - and be sure to cache the result.
             var fn = !/\W/.test(str) ?
@@ -273,7 +280,7 @@
                     anchorMargin = i == ln - 1 ? '' : 'style="margin-' + (self._vertical ? "bottom" : 'right') + ':' + options.scrollAnchorSpacing + 'px"';
 
                 menuTemplate = menuTemplate && '<div class="scroll-menu-content <%= className %>" style="' + (self.options.menuType != "horizontal-menu" && 'background-color : <%= backgroundColor %>') + '">' + menuTemplate + '</div>';
-                scrollAnchorTempl = '<div class="scroll-anchor" ' + anchorMargin + '>' + menuTemplate + '<div class="scroll-handle-wrap" style="background-color : <%= backgroundColor %>"><div class="scroll-handle"></div></div></div>';
+                var scrollAnchorTempl = '<div class="scroll-anchor" ' + anchorMargin + '>' + menuTemplate + '<div class="scroll-handle-wrap" style="background-color : <%= backgroundColor %>"><div class="scroll-handle"></div></div></div>';
                 //compile and push template
                 scrollBarHtml.push(tmpl(scrollAnchorTempl, setupObj));
             }
@@ -465,7 +472,6 @@
     }
 
     //provide a globally accessable api for ScrollMenu
-    var global = this;
     global.ScrollMenu = function (container, options) {
         return (new ScrollMenu(container, options))._init();
     }
