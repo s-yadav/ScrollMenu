@@ -1,5 +1,5 @@
 /*
-    ScrollMenu v 1.0.1
+    ScrollMenu v 1.0.2
     Author: Sudhanshu Yadav
     Copyright (c) 2015 to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
     Demo on: http://ignitersworld.com/lab/scrollmenu/
@@ -149,11 +149,11 @@
             //prepare menu html
             self._prepareMenu();
 
-            var contentWrap = self._contentWrap;
+            var scrollElm = self.scrollElm;
 
             //assign events for watching scroll
             if (nativeScroll) {
-                contentWrap.on('scroll', function () {
+                scrollElm.on('scroll', function () {
                     self._onScroll();
                 });
             }
@@ -168,7 +168,7 @@
                     if (nativeScroll) {
                         //reset the height so css applied height takes over
                         container.height("");
-                        contentWrap.add(container).height(container.is('body,html') ? $window.height() : container.height());
+                        scrollElm.add(container).height(container.is('body,html') ? $window.height() : container.height());
                     }
                     self._setScrollAchorSize();
                 }, 200);
@@ -261,11 +261,11 @@
                 /** scrollbar hide hack start **/
                 var rightAjust = scrollbarVisible ? 'width:100%' : 'padding-right:10px; right:-' + (10 + scrollBarWidth) + 'px';
                 container.wrapInner('<div class="content-inner-wrapper"></div>').wrapInner('<div class="content-wrapper" style="' + rightAjust + '"></div>'); //it should be box sizing contentbox
-                //cache contentWrap for feature use
-                var contentWrap = self._contentWrap = container.find('.content-wrapper');
+                //cache scrollElm for feature use
+                var scrollElm = self.scrollElm = container.find('.content-wrapper');
                 //manage height and positions 
-                contentWrap.add(container).height(container.is('body') ? $window.height() : container.height());
-                contentWrap.css('position', 'absolute');
+                scrollElm.add(container).height(container.is('body') ? $window.height() : container.height());
+                scrollElm.css('position', 'absolute');
                 /** scrollbar hide hack end **/
             }
 
@@ -309,12 +309,12 @@
         },
         //function to get scroll position
         scrollTop: function () {
-            return this._contentWrap.scrollTop();
+            return this.scrollElm.scrollTop();
         },
         //function to get inner content height
         _scrollHeight: function () {
             var self = this;
-            return (self.options.nativeScroll ? self._contentWrap : self.container)[0].scrollHeight;
+            return (self.options.nativeScroll ? self.scrollElm : self.container)[0].scrollHeight;
         },
         //set offset positions of scroll anchor
         _setAnchorPos: function () {
@@ -357,7 +357,7 @@
         },
         //hookable scrollTo method
         _scrollTo: function (top, duration, callback) {
-            this._contentWrap.animate({
+            this.scrollElm.animate({
                 scrollTop: top + 'px'
             }, duration, callback);
         },
@@ -459,8 +459,8 @@
             var self = this;
             //remove scrollmenu and wraps
             self.scrollMenuWrap.remove();
-            if (self._contentWrap) {
-                self._contentWrap.children().children().unwrap().unwrap();
+            if (self.scrollElm) {
+                self.scrollElm.children().children().unwrap().unwrap();
             }
 
             //remove scroller container
