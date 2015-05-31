@@ -1,5 +1,5 @@
 /*
-    ScrollMenu v 1.0.2
+    ScrollMenu v 1.0.3
     Author: Sudhanshu Yadav
     Copyright (c) 2015 to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
     Demo on: http://ignitersworld.com/lab/scrollmenu/
@@ -58,38 +58,38 @@
 
     // Simple JavaScript Templating
     // John Resig - http://ejohn.org/ - MIT Licensed
-    (function () {
-        var cache = {};
 
-        global.tmpl = function tmpl(str, data) {
-            // Figure out if we're getting a template, or if we need to
-            // load the template - and be sure to cache the result.
-            var fn = !/\W/.test(str) ?
-                cache[str] = cache[str] ||
-                tmpl(document.getElementById(str).innerHTML) :
+    var cache = {};
 
-                // Generate a reusable function that will serve as a template
-                // generator (and which will be cached).
-                new Function("obj",
-                    "obj = obj || {}; var p=[],print=function(){p.push.apply(p,arguments);};" +
+    function tmpl(str, data) {
+        // Figure out if we're getting a template, or if we need to
+        // load the template - and be sure to cache the result.
+        var fn = !/\W/.test(str) ?
+            cache[str] = cache[str] ||
+            tmpl(document.getElementById(str).innerHTML) :
 
-                    // Introduce the data as local variables using with(){}
-                    "p.push('" +
+            // Generate a reusable function that will serve as a template
+            // generator (and which will be cached).
+            new Function("obj",
+                "obj = obj || {}; var p=[],print=function(){p.push.apply(p,arguments);};" +
 
-                    // Convert the template into pure JavaScript
-                    str
-                    .replace(/[\r\t\n]/g, " ")
-                    .split("<%").join("\t")
-                    .replace(/((^|%>)[^\t]*)'/g, "$1\r")
-                    .replace(/\t=(.*?)%>/g, "',obj.$1 || \"\",'")
-                    .split("\t").join("');")
-                    .split("%>").join("p.push('")
-                    .split("\r").join("\\'") + "');return p.join('');");
+                // Introduce the data as local variables using with(){}
+                "p.push('" +
 
-            // Provide some basic currying to the user
-            return data ? fn(data) : fn;
-        };
-    })();
+                // Convert the template into pure JavaScript
+                str
+                .replace(/[\r\t\n]/g, " ")
+                .split("<%").join("\t")
+                .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+                .replace(/\t=(.*?)%>/g, "',obj.$1 || \"\",'")
+                .split("\t").join("');")
+                .split("%>").join("p.push('")
+                .split("\r").join("\\'") + "');return p.join('');");
+
+        // Provide some basic currying to the user
+        return data ? fn(data) : fn;
+    };
+
 
     //default values for plugin
     var defaults = {
