@@ -1,5 +1,5 @@
 /*
-    ScrollMenu v 1.0.3
+    ScrollMenu v 1.0.4
     Author: Sudhanshu Yadav
     Copyright (c) 2015 to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
     Demo on: http://ignitersworld.com/lab/scrollmenu/
@@ -109,11 +109,11 @@
     };
 
 
-    //Scroll menu class; 
+    //Scroll menu class;
     function ScrollMenu(container, options) {
         var self = this; //store this to self, so it can be minified
 
-        //check if container not provided take body as default container 
+        //check if container not provided take body as default container
         if (!container || !($(container)[0] instanceof Element)) {
             options = container;
             container = document.body;
@@ -158,7 +158,7 @@
                 });
             }
 
-            //set anchor size and update size on window resize 
+            //set anchor size and update size on window resize
             self._setScrollAchorSize();
             $window.on('resize.scrollMenu', function () {
 
@@ -255,7 +255,7 @@
                 container = self.container,
                 options = self.options,
                 scrollbarVisible = options.scrollbarVisible;
-            //wrap container content to hide scrollbars while having native scrolling (A dirty hack :(, looking a better alternative for it) 
+            //wrap container content to hide scrollbars while having native scrolling (A dirty hack :(, looking a better alternative for it)
             container.addClass('scroller-container');
             if (options.nativeScroll) {
                 /** scrollbar hide hack start **/
@@ -263,7 +263,7 @@
                 container.wrapInner('<div class="content-inner-wrapper"></div>').wrapInner('<div class="content-wrapper" style="' + rightAjust + '"></div>'); //it should be box sizing contentbox
                 //cache scrollElm for feature use
                 var scrollElm = self.scrollElm = container.find('.content-wrapper');
-                //manage height and positions 
+                //manage height and positions
                 scrollElm.add(container).height(container.is('body') ? $window.height() : container.height());
                 scrollElm.css('position', 'absolute');
                 /** scrollbar hide hack end **/
@@ -302,7 +302,7 @@
                 menuMod.call(this, self.getIndexData(idx));
             });
 
-            //add a right padding of scrollbar width on scrollmenu if scrollbar is set to be visible 
+            //add a right padding of scrollbar width on scrollmenu if scrollbar is set to be visible
             if (scrollbarVisible) {
                 var paddingRight = scrollMenuWrap.css('padding-right', (parseInt(scrollMenuWrap.css('padding-right'), 10) + scrollBarWidth) + 'px');
             }
