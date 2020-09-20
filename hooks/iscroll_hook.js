@@ -13,7 +13,7 @@ function IScrollMenu(container, scrollMenuOptions, iScrollOptions){
     //hide iscroll scrollbars if scrollbarVisible is not set to true
     if(!scrollMenuOptions.scrollbarVisible && !ScrollMenu.defaults.scrollbarVisible) iScrollOptions.scrollbars = false;
     
-    //initiate both plugins and keep there isntance to return
+    //initiate both plugins and keep there instance to return
     var iScrollInst = new IScroll(container, iScrollOptions),
         scrollMenuInst = ScrollMenu(container, scrollMenuOptions);
 
