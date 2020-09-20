@@ -15,7 +15,7 @@ function niceScrollMenu(container, scrollMenuOptions, niceScrollOptions){
     //hide nicescroll scrollbars if scrollbarVisible is not set to true
     if(!scrollMenuOptions.scrollbarVisible && !ScrollMenu.defaults.scrollbarVisible) niceScrollOptions.autohidemode = "hidden";
     
-    //initiate both plugins and keep there isntance to return
+    //initiate both plugins and keep there instance to return
     var niceScrollInst = container.niceScroll(niceScrollOptions),
         scrollMenuInst = ScrollMenu(container, scrollMenuOptions);
 
